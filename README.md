@@ -30,7 +30,7 @@ ______Median = 5.0
 ### Tips
 * Make pystats.py as a command
     * Unix/Linux
-        * copy pystats.py into a folder that is in PATH; such as `/local/usr/bin`, `/opt/local/bin`, etc.
+        * copy pystats.py into a folder that is in PATH e.g., `/local/usr/bin`, `/opt/local/bin`.
     * Windows
         * TBD
 
