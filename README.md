@@ -4,12 +4,11 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 
 ### Install
 1. download/clone the repository
-2. `make install` 
-3. **pystats.py** will be installed to `/usr/local/bin`
+2. Unix/Linux `make install`, **pystats.py** will be installed to `/usr/local/bin`
+3. Windows user read tips first
 
 ### Usage
  * `pystats.py [options]`
- * Windows users please read tips first
 
 ### Options
 | Option | Description |
