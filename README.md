@@ -21,9 +21,9 @@ Unix/Linux/Mac OS
 
 
 ### Examples
-   * `cat data.txt | pystats.py` or `pystats.py < data.txt`
-   * Output:
-   ```
+  * `cat data.txt | pystats.py` or `pystats.py < data.txt`
+  * Output:
+```
 _______Field = 1
 _______Lines = 26
 ________Mean = 4.80769230769
@@ -33,19 +33,19 @@ _________Sum = 125.0
 _________Min = 0.0
 _________Max = 9.0
 ______Median = 5.0 
-   ```
-   * summarize 2nd field of a comma separated values (csv) file, skip first line (header)
-   * Input:
-   ```
+```
+  * summarize 2nd field of a comma separated values (csv) file, skip first line (header)
+  * Input:
+```
 "c1","c2","c3","c4"
 1,2,3,4
 5,6,7,8
 9,0,1,2
 3,4,5,6
 ```
-   * `cat data.csv | pystats.py -d',' -f2 -s1`
-   * Output:
-   ```
+  * `cat data.csv | pystats.py -d',' -f2 -s1`
+  * Output:
+```
 _______Field = 2
 _______Lines = 4
 ________Mean = 3.0
@@ -55,7 +55,7 @@ _________Sum = 12.0
 _________Min = 0.0
 _________Max = 6.0
 ______Median = 3.0
-   ```
+```
 
 ### Tips
 * Make pystats.py on Windows
