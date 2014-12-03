@@ -19,12 +19,15 @@ _________Min = 0.0
 _________Max = 9.0
 ______Median = 5.0 
     ```
+     * summarize 2nd field of a comma separated values (csv) file, skip first line (header)
+     * `cat data.csv | ./pystats -d',' -f2 -s1`
 
 ### Options
 | Option | Description |
 |:------:|:-----------:|
 | -f#    | field/column index (start from 1) |
-| -s#    | seperator   |
+| -d#    | delimiter   |
+| -s#    | skip first # lines |
 | -h     | print help  |
 
 ### Tips
