@@ -8,8 +8,8 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 3. **pystats.py** will be installed to `/usr/local/bin`
 
 ### Usage
-Unix/Linux/Mac OS
  * `pystats.py [options]`
+ * Windows users please read tips first
 
 ### Options
 | Option | Description |
@@ -21,7 +21,8 @@ Unix/Linux/Mac OS
 
 
 ### Examples
-  * `cat data.txt | pystats.py` or `pystats.py < data.txt`
+  * `cat data.txt | pystats.py` Unix/Linux, PowerShell on Windows
+  * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
   * Output:
 ```
 _______Field = 1
@@ -57,9 +58,15 @@ _________Max = 6.0
 ______Median = 3.0
 ```
 
+
 ### Tips
-* Make pystats.py on Windows
-  * TBD 
+
+* Make pystats.py as a command on Windows
+ 1. create a bin folder under current user's home folder. PowerShell `mkdir ~/bin`
+ 2. copy **pystats.py** to that folder. PowerShell `cp pystats.py ~/bin`
+ 3. add `C:/Users/YOURNAME/bin` to `PATH` variable
+ 4. add `.py` to `PATHEXT` variable to make python script executable
+
 
 ### Dependencies
 * None
