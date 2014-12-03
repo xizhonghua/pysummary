@@ -5,6 +5,34 @@
 
 import sys
 
+VERSION = "0.0.2"
+
+def print_help():
+    print 'pystats - a summary statistics script'
+    print 'Version', VERSION, 'by Zhonghua Xi'
+    print 'Project website: https://github.com/xizhonghua/pystats'
+    print 'Usage:',sys.argv[0],'[options]'
+    print 'Options:'
+    print '    -h  ', 'help message'
+    print '    -f# ', 'field index, start from 1'
+
+def parse_args():
+    seperator = ' '
+    field = 1
+    i = 1
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg[0] != '-':
+            print 'unknown option:', i
+            sys.exit(0)
+        if arg == '-h':
+            print_help()
+            sys.exit(0)
+        elif arg.startswith('-f'):
+            field = int(arg[2:])
+        i+=1
+    return (field, seperator)
+
 def mean(data, s = None):
     if len(data) == 0:
         return 0
@@ -60,4 +88,5 @@ def stats(stream, field=1, d=' '):
     print_st("Median", median(data))
 
 if  __name__ == "__main__":
-    stats(sys.stdin)
+    field, seperator = parse_args()
+    stats(sys.stdin, field, seperator)
