@@ -15,11 +15,15 @@ def print_help():
     print 'Options:'
     print '    -h  ', 'help message'
     print '    -f# ', 'field index, start from 1'
+    print '    -d# ', 'field delimiter'
+    print '    -s#', 'skip first # lines, default is one for header'
+
 
 def parse_args():
-    seperator = ' '
+    delimiter = ' '
     field = 1
     i = 1
+    skip = 0
     while i < len(sys.argv):
         arg = sys.argv[i]
         if arg[0] != '-':
@@ -30,8 +34,12 @@ def parse_args():
             sys.exit(0)
         elif arg.startswith('-f'):
             field = int(arg[2:])
+        elif arg.startswith('-d'):
+            delimiter = (arg[2:])
+        elif arg.startswith('-s'):
+            skip = 1 if arg == '-s' else int(arg[2:])
         i+=1
-    return (field, seperator)
+    return (field, delimiter, skip)
 
 def mean(data, s = None):
     if len(data) == 0:
@@ -67,15 +75,27 @@ def median(data):
 def print_st(key, value):
     print key.rjust(12, '_') , '=', value
 
-def stats(stream, field=1, d=' '):
+def stats(stream, field=1, delimiter=' ', skip = 0):
     data = []
+    lineNum = 0
     for line in stream:
-        items = line.split(d)
+
+        lineNum += 1
+
+        # skip first skip lines
+        if lineNum <= skip: continue
+
+        # if line is empty or white space, do nothing
+        if len(line) == 0 or line.isspace(): continue
+
+        items = line.split(delimiter)
         data.append(float(items[field-1]))
 
     s = sum(data)
     m = mean(data, s)
     v = variance(data, m)
+    min_value = 0 if len(data) == 0 else min(data)
+    max_value = 0 if len(data) == 0 else max(data)
 
     print_st("Field", field)
     print_st("Lines", len(data))
@@ -83,10 +103,10 @@ def stats(stream, field=1, d=' '):
     print_st("Variance", v)
     print_st("StdDev", v ** 0.5)
     print_st("Sum", s)
-    print_st("Min", min(data))
-    print_st("Max", max(data))
+    print_st("Min", min_value)
+    print_st("Max", max_value)
     print_st("Median", median(data))
 
 if  __name__ == "__main__":
-    field, seperator = parse_args()
-    stats(sys.stdin, field, seperator)
+    field, delimiter, skip = parse_args()
+    stats(sys.stdin, field, delimiter, skip)
