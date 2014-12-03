@@ -1,15 +1,26 @@
-#pystats
+#pystats.py
 
-pystats is a python script for simple statistics tasks. pystats read from stand input and use space as seperator by defualt.
+pystats.py is a python script for simple statistics tasks. pystats read from stand input and use space as seperator by defualt.
 
 ### Install
 1. download/clone the repository
-2. `make install`
+2. `make install` 
+3. **pystats.py** will be installed to `/usr/local/bin`
 
 ### Usage
 Unix/Linux/Mac OS
  * `pystats.py [options]`
- * Examples
+
+### Options
+| Option | Description |
+|:------:|:-----------:|
+| -f#    | field/column index (start from 1) |
+| -d#    | delimiter   |
+| -s#    | skip first # lines |
+| -h     | print help  |
+
+
+### Examples
    * `cat data.txt | pystats.py` or `pystats.py < data.txt`
    * Output:
    ```
@@ -45,14 +56,6 @@ _________Min = 0.0
 _________Max = 6.0
 ______Median = 3.0
    ```
-
-### Options
-| Option | Description |
-|:------:|:-----------:|
-| -f#    | field/column index (start from 1) |
-| -d#    | delimiter   |
-| -s#    | skip first # lines |
-| -h     | print help  |
 
 ### Tips
 * Make pystats.py on Windows
