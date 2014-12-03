@@ -26,5 +26,8 @@ ______Median = 5.0
 | -f#    | field/column index (start from 1) |
 | -s#    | seperator   |
 
+### Dependencies
+* None
+
 ### Contact
 * Zhonghua Xi [xizhonghua@gmail.com](mailto:xizhonghua@gmail.com?subject=pystats)
