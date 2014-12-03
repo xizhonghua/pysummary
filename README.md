@@ -1,6 +1,6 @@
 #pystats
 
-pystats is a python scripts for basic statistics tasks. pystats read from stand input by defualt, and use space as seperator.
+pystats is a python script for simple statistics tasks. pystats read from stand input by defualt, and use space as seperator.
 
 ### Usage
 * Unix/Linux/Mac OS
@@ -25,6 +25,14 @@ ______Median = 5.0
 |:------:|:-----------:|
 | -f#    | field/column index (start from 1) |
 | -s#    | seperator   |
+| -h     | print help  |
+
+### Tips
+* Make pystats.py as a command
+    * Unix/Linux
+        * copy pystats.py into a folder that is in PATH; such as `/local/usr/bin`, `/opt/local/bin`, etc.
+    * Windows
+        * TBD
 
 ### Dependencies
 * None
