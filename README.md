@@ -1,6 +1,6 @@
 #pystats
 
-pystats is a python script for simple statistics tasks. pystats read from stand input by defualt, and use space as seperator.
+pystats is a python script for simple statistics tasks. pystats read from stand input and use space as seperator by defualt.
 
 ### Install
 1. download/clone the repository
