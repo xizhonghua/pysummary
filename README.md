@@ -20,9 +20,10 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 
 
 ### Examples
-  * `cat data.txt | pystats.py` Unix/Linux, PowerShell on Windows
-  * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
-  * Output:
+ * Use case: basic summary on single column text file
+ * `cat data.txt | pystats.py` Unix/Linux, PowerShell on Windows
+ * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
+ * Output:
 ```
 _______Field = 1
 _______Lines = 26
@@ -34,7 +35,8 @@ _________Min = 0.0
 _________Max = 9.0
 ______Median = 5.0 
 ```
-  * summarize 2nd field of a comma separated values (csv) file, skip first line (header)
+----
+  * Use case: summarize 2nd field of a comma separated values (csv) file, skip first line (header)
   * Input:
 ```
 "c1","c2","c3","c4"
