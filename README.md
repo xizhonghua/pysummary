@@ -6,8 +6,7 @@ pystats is a python scripts for basic statistics tasks. pystats read from stand 
 * Unix/Linux/Mac OS
   * `./pystats [options]`
   * Examples
-    * `cat data.txt | ./pystats`
-    * `./pystats < data.txt`
+    * `cat data.txt | ./pystats` or `./pystats < data.txt`
     * Output:
     ```
 _______Field = 1
@@ -20,6 +19,12 @@ _________Min = 0.0
 _________Max = 9.0
 ______Median = 5.0 
     ```
+
+### Options
+| Option | Description |
+|:------:|:-----------:|
+| -f#    | field/column index (start from 1) |
+| -s#    | seperator   |
 
 ### Contact
 * Zhonghua Xi [xizhonghua@gmail.com](mailto:xizhonghua@gmail.com?subject=pystats)
