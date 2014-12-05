@@ -100,9 +100,9 @@ def mean_confidence_interval(data, confidence=0.95):
 def print_st(key, value):
     if not isinstance( value, int ):
         format_str = "%s = %0." + str(precision) + "f"        
-        print format_str % (key.rjust(12,'='), value)
+        print format_str % (key.rjust(12,'_'), value)
     else:
-        print "%s = %d" % (key.rjust(12,'='), value)
+        print "%s = %d" % (key.rjust(12,'_'), value)
 
 def stats(stream, field=1, delimiter=' ', skip = 0, confidence=0.95):
     data = []
@@ -147,5 +147,5 @@ if  __name__ == "__main__":
     print_st("Max", max_value)
     print_st("Median", median_value)
     print_st("Confidence", confidence)
-    print_st("Cnf. Itv. L", ci[0])
-    print_st("Cnf. Itv. U", ci[1])
+    print_st("Cnf.Itv.L", ci[0])
+    print_st("Cnf.Itv.U", ci[1])
