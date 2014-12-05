@@ -4,8 +4,18 @@
 # Date: 12/3/2014
 
 import sys
+import numpy as np
+import scipy as sp
+import scipy.stats
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
+
+delimiter = ' '
+field = 1
+i = 1
+skip = 0
+precision = 5
+confidence = 0.95
 
 def print_help():
     print 'pystats - a summary statistics script'
@@ -16,14 +26,19 @@ def print_help():
     print '    -h  ', 'help message'
     print '    -f# ', 'field index, start from 1'
     print '    -d# ', 'field delimiter'
-    print '    -s#', 'skip first # lines, default is one for header'
+    print '    -s# ', 'skip first # lines, default is one for header'
+    print '    -c# ', 'confidence default =', confidence
+    print '    -p# ', 'precision, default =', precision
 
 
 def parse_args():
-    delimiter = ' '
-    field = 1
-    i = 1
-    skip = 0
+    global delimiter
+    global field
+    global i
+    global skip
+    global precision
+    global confidence
+
     while i < len(sys.argv):
         arg = sys.argv[i]
         if arg[0] != '-':
@@ -38,8 +53,11 @@ def parse_args():
             delimiter = (arg[2:])
         elif arg.startswith('-s'):
             skip = 1 if arg == '-s' else int(arg[2:])
+        elif arg.startswith('-p'):
+            precision = int(arg[2:])
+        elif arg.startswith('-c'):
+            confidence = float(arg[2:])
         i+=1
-    return (field, delimiter, skip)
 
 def mean(data, s = None):
     if len(data) == 0:
@@ -71,11 +89,22 @@ def median(data):
 
     return data[mid]
 
+def mean_confidence_interval(data, confidence=0.95):
+    a = 1.0*np.array(data)
+    n = len(a)
+    m, se = np.mean(a), scipy.stats.sem(a)
+    h = se * sp.stats.t._ppf((1+confidence)/2., n-1)
+    return m-h, m+h
+
 
 def print_st(key, value):
-    print key.rjust(12, '_') , '=', value
+    if not isinstance( value, int ):
+        format_str = "%s = %0." + str(precision) + "f"        
+        print format_str % (key.rjust(12,'='), value)
+    else:
+        print "%s = %d" % (key.rjust(12,'='), value)
 
-def stats(stream, field=1, delimiter=' ', skip = 0):
+def stats(stream, field=1, delimiter=' ', skip = 0, confidence=0.95):
     data = []
     lineNum = 0
     for line in stream:
@@ -92,21 +121,31 @@ def stats(stream, field=1, delimiter=' ', skip = 0):
         data.append(float(items[field-1]))
 
     s = sum(data)
+    l = len(data)
     m = mean(data, s)
     v = variance(data, m)
     min_value = 0 if len(data) == 0 else min(data)
     max_value = 0 if len(data) == 0 else max(data)
+    std_dev = v ** 0.5
+    median_value = median(data)
+    ci = mean_confidence_interval(data, confidence)
+
+    return (field, l, m, v, std_dev, s, min_value, max_value, median_value, ci)
+
+if  __name__ == "__main__":
+    parse_args()
+
+    field, l, m, v, std_dev, s, min_value, max_value, median_value, ci = stats(sys.stdin, field, delimiter, skip, confidence)
 
     print_st("Field", field)
-    print_st("Lines", len(data))
+    print_st("Lines", l)
     print_st("Mean", m)
     print_st("Variance", v)
-    print_st("StdDev", v ** 0.5)
+    print_st("StdDev", std_dev)
     print_st("Sum", s)
     print_st("Min", min_value)
     print_st("Max", max_value)
-    print_st("Median", median(data))
-
-if  __name__ == "__main__":
-    field, delimiter, skip = parse_args()
-    stats(sys.stdin, field, delimiter, skip)
+    print_st("Median", median_value)
+    print_st("Confidence", confidence)
+    print_st("Cnf. Itv. L", ci[0])
+    print_st("Cnf. Itv. U", ci[1])
