@@ -68,6 +68,16 @@ ___Cnf.Itv.L = -1.10852
 ___Cnf.Itv.U = 7.10852
 ```
 
+* Use pystats as a module
+```python
+from pystats import *
+with open('data.txt') as f:
+    res = stats(stream = f, field=1, delimiter=' ', skip = 0, confidence=0.95)
+    print res
+
+# field, lines, mean, variance, std dev, sum, min, max, median, confidence interval
+# (1, 26, 4.8076923076923075, 4.770710059171598, 2.18419551761549, 125.0, 0.0, 9.0, 5.0, (3.9080053326363, 5.707379282748315))
+```
 
 ### Tips
 
