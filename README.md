@@ -16,7 +16,10 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 | -f#    | field/column index (start from 1) |
 | -d#    | delimiter   |
 | -s#    | skip first # lines |
+| -p#    | set print precision |
+| -c#    | set confidence |
 | -h     | print help  |
+
 
 
 ### Examples
@@ -25,15 +28,18 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
  * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
  * Output:
 ```
-_______Field = 1
-_______Lines = 26
-________Mean = 4.80769230769
-____Variance = 4.77071005917
-______StdDev = 2.18419551762
-_________Sum = 125.0
-_________Min = 0.0
-_________Max = 9.0
-______Median = 5.0 
+=======Field = 1
+=======Lines = 26
+========Mean = 4.80769
+====Variance = 4.77071
+======StdDev = 2.18420
+=========Sum = 125.00000
+=========Min = 0.00000
+=========Max = 9.00000
+======Median = 5.00000
+==Confidence = 0.95000
+=Cnf. Itv. L = 3.90801
+=Cnf. Itv. U = 5.70738
 ```
 ----
   * Use case: summarize 2nd field of a comma separated values (csv) file, skip first line (header)
@@ -48,15 +54,18 @@ ______Median = 5.0
   * `cat data.csv | pystats.py -d',' -f2 -s1`
   * Output:
 ```
-_______Field = 2
-_______Lines = 4
-________Mean = 3.0
-____Variance = 5.0
-______StdDev = 2.2360679775
-_________Sum = 12.0
-_________Min = 0.0
-_________Max = 6.0
-______Median = 3.0
+=======Field = 2
+=======Lines = 4
+========Mean = 3.00000
+====Variance = 5.00000
+======StdDev = 2.23607
+=========Sum = 12.00000
+=========Min = 0.00000
+=========Max = 6.00000
+======Median = 3.00000
+==Confidence = 0.95000
+=Cnf. Itv. L = -1.10852
+=Cnf. Itv. U = 7.10852
 ```
 
 
