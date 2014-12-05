@@ -28,18 +28,18 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
  * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
  * Output:
 ```
-=======Field = 1
-=======Lines = 26
-========Mean = 4.80769
-====Variance = 4.77071
-======StdDev = 2.18420
-=========Sum = 125.00000
-=========Min = 0.00000
-=========Max = 9.00000
-======Median = 5.00000
-==Confidence = 0.95000
-=Cnf. Itv. L = 3.90801
-=Cnf. Itv. U = 5.70738
+_______Field = 1
+_______Lines = 26
+________Mean = 4.80769
+____Variance = 4.77071
+______StdDev = 2.18420
+_________Sum = 125.00000
+_________Min = 0.00000
+_________Max = 9.00000
+______Median = 5.00000
+__Confidence = 0.95000
+___Cnf.Itv.L = 3.90801
+___Cnf.Itv.U = 5.70738
 ```
 ----
   * Use case: summarize 2nd field of a comma separated values (csv) file, skip first line (header)
@@ -54,18 +54,18 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
   * `cat data.csv | pystats.py -d',' -f2 -s1`
   * Output:
 ```
-=======Field = 2
-=======Lines = 4
-========Mean = 3.00000
-====Variance = 5.00000
-======StdDev = 2.23607
-=========Sum = 12.00000
-=========Min = 0.00000
-=========Max = 6.00000
-======Median = 3.00000
-==Confidence = 0.95000
-=Cnf. Itv. L = -1.10852
-=Cnf. Itv. U = 7.10852
+_______Field = 2
+_______Lines = 4
+________Mean = 3.00000
+____Variance = 5.00000
+______StdDev = 2.23607
+_________Sum = 12.00000
+_________Min = 0.00000
+_________Max = 6.00000
+______Median = 3.00000
+__Confidence = 0.95000
+___Cnf.Itv.L = -1.10852
+___Cnf.Itv.U = 7.10852
 ```
 
 
