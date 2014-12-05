@@ -79,7 +79,8 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 
 
 ### Dependencies
-* None
+* NumPy
+* SciPy
 
 ### Contact
 * Zhonghua Xi [xizhonghua@gmail.com](mailto:xizhonghua@gmail.com?subject=pystats)
