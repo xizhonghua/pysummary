@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Author: Zhonghua Xi
-# Date: 12/3/2014
+# Date: 12/12/2014
 
 import sys
 import re
@@ -9,7 +9,7 @@ import numpy as np
 import scipy as sp
 import scipy.stats
 
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 
 delimiter = ' '
 field = 1
