@@ -18,6 +18,7 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 | -s#    | skip first # lines |
 | -p#    | set print precision |
 | -c#    | set confidence |
+| -i#    | NA value to ignore |
 | -h     | print help  |
 
 
