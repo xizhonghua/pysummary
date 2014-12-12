@@ -4,6 +4,7 @@
 # Date: 12/3/2014
 
 import sys
+import re
 import numpy as np
 import scipy as sp
 import scipy.stats
@@ -107,6 +108,9 @@ def print_st(key, value):
 def stats(stream, field=1, delimiter=' ', skip = 0, confidence=0.95):
     data = []
     lineNum = 0
+
+    patt = re.compile("[^\t]+")
+        
     for line in stream:
 
         lineNum += 1
@@ -117,7 +121,11 @@ def stats(stream, field=1, delimiter=' ', skip = 0, confidence=0.95):
         # if line is empty or white space, do nothing
         if len(line) == 0 or line.isspace(): continue
 
-        items = line.split(delimiter)
+        if delimiter == '\\t':            
+            items = patt.findall(line)            
+        else:    
+            items = line.split(delimiter)       
+
         data.append(float(items[field-1]))
 
     s = sum(data)
