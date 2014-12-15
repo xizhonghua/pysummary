@@ -76,8 +76,8 @@ with open('data.txt') as f:
     res = stats(stream = f, field=1, delimiter=' ', skip = 0, confidence=0.95)
     print res
 
-# field, lines, mean, variance, std dev, sum, min, max, median, confidence interval
-# (1, 26, 4.8076923076923075, 4.770710059171598, 2.18419551761549, 125.0, 0.0, 9.0, 5.0, (3.9080053326363, 5.707379282748315))
+# field, lines, mean, variance, std dev, sum, min, max, median, confidence, low limit, high limit
+# 1 26 125.0 0.0 9.0 4.80769230769 4.77071005917 2.18419551762 5.0 0.95 3.90800533264 5.70737928275
 ```
 
 ### Tips
