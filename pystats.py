@@ -9,7 +9,7 @@ import numpy as np
 import scipy as sp
 import scipy.stats
 
-VERSION = "0.0.5"
+VERSION = "0.0.6"
 
 delimiter = ' '
 field = 1
@@ -18,6 +18,35 @@ skip = 0
 precision = 5
 confidence = 0.95
 navalue = 'N/A'
+
+class StatResult:
+    def __init__(self, field, lines, sum, min, max, mean, variance, std_dev, median, confidence, low_limit, high_limit):
+        self.field = field;
+        self.lines = lines;
+        self.sum = sum;
+        self.min = min;
+        self.max = max;
+        self.mean = mean;
+        self.variance = variance;
+        self.std_dev = std_dev;
+        self.median = median;
+        self.confidence = confidence;
+        self.low_limit = low_limit;
+        self.high_limit = high_limit;
+    def __repr__(self):
+        return "%s %s %s %s %s %s %s %s %s %s %s %s" % (   self.field,
+                    self.lines,
+                    self.sum,
+                    self.min,
+                    self.max,
+                    self.mean,
+                    self.variance,
+                    self.std_dev,
+                    self.median,
+                    self.confidence,
+                    self.low_limit,
+                    self.high_limit)
+
 
 def print_help():
     print 'pystats - a summary statistics script'
@@ -151,22 +180,36 @@ def stats(stream, field=1, delimiter=' ', skip = 0, confidence = 0.95, navalue =
     median_value = median(data)
     ci = mean_confidence_interval(data, confidence)
 
-    return (field, l, m, v, std_dev, s, min_value, max_value, median_value, ci)
+    result = StatResult(
+        field = field,
+        sum = s,
+        lines = l,
+        mean = m,
+        variance = v,
+        std_dev = std_dev,
+        min = min_value,
+        max = max_value,
+        median = median_value,
+        confidence = confidence,
+        low_limit = ci[0],
+        high_limit = ci[1]);
+
+    return result    
 
 if  __name__ == "__main__":
     parse_args()
 
-    field, l, m, v, std_dev, s, min_value, max_value, median_value, ci = stats(sys.stdin, field, delimiter, skip, confidence, navalue)
+    result = stats(sys.stdin, field, delimiter, skip, confidence, navalue)
 
-    print_st("Field", field)
-    print_st("Lines", l)
-    print_st("Mean", m)
-    print_st("Variance", v)
-    print_st("StdDev", std_dev)
-    print_st("Sum", s)
-    print_st("Min", min_value)
-    print_st("Max", max_value)
-    print_st("Median", median_value)
-    print_st("Confidence", confidence)
-    print_st("Cnf.Itv.L", ci[0])
-    print_st("Cnf.Itv.U", ci[1])
+    print_st("Field", result.field)
+    print_st("Lines", result.lines)
+    print_st("Mean", result.mean)
+    print_st("Variance", result.variance)
+    print_st("StdDev", result.std_dev)
+    print_st("Sum", result.sum)
+    print_st("Min", result.min)
+    print_st("Max", result.max)
+    print_st("Median", result.median)
+    print_st("Confidence", result.confidence)
+    print_st("Cnf.Itv.L", result.low_limit)
+    print_st("Cnf.Itv.U", result.high_limit)
