@@ -76,10 +76,24 @@ with open('data.txt') as f:
     res = stats(stream = f, field=1, delimiter=' ', skip = 0, confidence=0.95)
     print res
     # print res.mean, res.variance ...
+```
+```
+output
+1 26 4.80769 4.77071 2.18420 125.00000 0.00000 9.00000 5.00000 0.95000 3.90801 5.70738
 
-# supported properties (in printing order)
-# field, lines, mean, variance, std_dev, sum, min, max, median, confidence, low_limit, high_limit
-# 1 26 4.80769 4.77071 2.18420 125.00000 0.00000 9.00000 5.00000 0.95000 3.90801 5.70738
+supported properties (in printing order)
+field
+lines
+mean
+variance
+std_dev
+sum
+min
+max
+median
+confidence
+low_limit
+high_limit
 ```
 
 ### Tips
