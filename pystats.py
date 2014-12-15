@@ -9,7 +9,7 @@ import numpy as np
 import scipy as sp
 import scipy.stats
 
-VERSION = "0.0.6"
+VERSION = "0.0.7"
 
 delimiter = ' '
 field = 1
@@ -34,7 +34,9 @@ class StatResult:
         self.low_limit = low_limit;
         self.high_limit = high_limit;
     def __repr__(self):
-        return "%s %s %s %s %s %s %s %s %s %s %s %s" % (   self.field,
+        p = " %0." + str(precision) + "f"
+        format_str = "%s %s" + p * 10        
+        return format_str % ( self.field,
                     self.lines,
                     self.sum,
                     self.min,
