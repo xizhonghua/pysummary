@@ -77,7 +77,7 @@ with open('data.txt') as f:
     print res
 
 # field, lines, mean, variance, std dev, sum, min, max, median, confidence, low limit, high limit
-# 1 26 125.0 0.0 9.0 4.80769230769 4.77071005917 2.18419551762 5.0 0.95 3.90800533264 5.70737928275
+# 1 26 4.80769 4.77071 2.18420 125.00000 0.00000 9.00000 5.00000 0.95000 3.90801 5.70738
 ```
 
 ### Tips
