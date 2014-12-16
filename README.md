@@ -1,6 +1,6 @@
-#pystats.py
+#PySummary
 
-pystats.py is a python script for summary statistics. pystats.py reads from stand input, uses space as fields delimiter by defualt and outputs to stand output.
+pysummary.py is a python script for summary statistics. pystats.py reads from stand input, uses space as fields delimiter by defualt and outputs to stand output.
 
 ### Install
 1. download/clone the repository
@@ -8,7 +8,7 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 3. Windows users please read [tips](#tips) first
 
 ### Usage
- * `pystats.py [options]`
+ * `pysummary.py [options]`
 
 ### Options
 | Option | Description |
@@ -25,8 +25,8 @@ pystats.py is a python script for summary statistics. pystats.py reads from stan
 
 ### Examples
  * Use case: basic summary on single column text file
- * `cat data.txt | pystats.py` Unix/Linux, PowerShell on Windows
- * `pystats.py < data.txt` Unix/Linux, cmd.exe on Windows
+ * `cat data.txt | pysummary.py` Unix/Linux, PowerShell on Windows
+ * `pysummary.py < data.txt` Unix/Linux, cmd.exe on Windows
  * Output:
 ```
 _______Field = 1
@@ -69,9 +69,9 @@ ___Cnf.Itv.L = -1.10852
 ___Cnf.Itv.U = 7.10852
 ```
 
-* Use pystats as a module
+* Use pysummary as a module
 ```python
-from pystats import *
+from pysummary import *
 with open('data.txt') as f:
     res = stats(stream = f, field=1, delimiter=' ', skip = 0, confidence=0.95)
     print res
@@ -100,7 +100,7 @@ high_limit
 
 * Make pystats.py as a command on Windows
  1. create a bin folder under current user's home folder. PowerShell `mkdir ~/bin`
- 2. copy **pystats.py** to that folder. PowerShell `cp pystats.py ~/bin`
+ 2. copy **pysummary.py** to that folder. PowerShell `cp pysummary.py ~/bin`
  3. add `C:/Users/YOURNAME/bin` to `PATH` variable
  4. add `.py` to `PATHEXT` variable to make python script executable
 
