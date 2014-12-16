@@ -75,9 +75,25 @@ from pystats import *
 with open('data.txt') as f:
     res = stats(stream = f, field=1, delimiter=' ', skip = 0, confidence=0.95)
     print res
+    # print res.mean, res.variance ...
+```
+```
+output
+1 26 4.80769 4.77071 2.18420 125.00000 0.00000 9.00000 5.00000 0.95000 3.90801 5.70738
 
-# field, lines, mean, variance, std dev, sum, min, max, median, confidence, low limit, high limit
-# 1 26 125.0 0.0 9.0 4.80769230769 4.77071005917 2.18419551762 5.0 0.95 3.90800533264 5.70737928275
+supported properties (in printing order)
+field
+lines
+mean
+variance
+std_dev
+sum
+min
+max
+median
+confidence
+low_limit
+high_limit
 ```
 
 ### Tips
