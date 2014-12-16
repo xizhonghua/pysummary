@@ -1,8 +1,8 @@
 #PySummary
 
-pysummary.py is a python script for summary statistics. pystats.py reads from stand input, uses space as fields delimiter by defualt and outputs to stand output.
+pysummary.py is a python script for summary statistics. As a command pysummary.py reads from stand input, uses space as fields delimiter by defualt and outputs to stand output. pysummary.py can also be used as a python module.
 
-### Install from Github
+### Install as a command
 1. download/clone the repository
 2. Unix/Linux `make install`, **pysummary.py** will be installed to `/usr/local/bin`
 3. Windows users please read [tips](#tips) first
