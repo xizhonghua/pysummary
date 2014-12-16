@@ -4,7 +4,7 @@ pysummary.py is a python script for summary statistics. pystats.py reads from st
 
 ### Install from Github
 1. download/clone the repository
-2. Unix/Linux `make install`, **pystats.py** will be installed to `/usr/local/bin`
+2. Unix/Linux `make install`, **pysummary.py** will be installed to `/usr/local/bin`
 3. Windows users please read [tips](#tips) first
 
 ### Install from Pip
@@ -55,7 +55,7 @@ ___Cnf.Itv.U = 5.70738
 9,0,1,2
 3,4,5,6
 ```
-  * `cat data.csv | pystats.py -d',' -f2 -s1`
+  * `cat data.csv | pysummary.py -d',' -f2 -s1`
   * Output:
 ```
 _______Field = 2
