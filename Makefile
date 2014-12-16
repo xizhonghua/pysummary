@@ -1,2 +1,2 @@
 install:
-	cp pystats/pystats.py /usr/local/bin
+	cp pysummary/pysummary.py /usr/local/bin
