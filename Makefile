@@ -1,2 +1,2 @@
 install:
-	cp pystats.py /usr/local/bin
+	cp pystats/pystats.py /usr/local/bin
