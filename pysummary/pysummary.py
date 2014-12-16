@@ -9,7 +9,7 @@ import numpy as np
 import scipy as sp
 import scipy.stats
 
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 
 delimiter = ' '
 field = 1
